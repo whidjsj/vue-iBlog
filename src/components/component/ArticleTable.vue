@@ -3,7 +3,7 @@
 
 <template>
   <div>
-    <el-table :data="info" style="width: 100%; margin: auto;" max-height="80vh" v-loading="loading" header-cell-style="text-align:center;" border>
+    <el-table :data="info" style="width: 100%; margin: auto;" max-height="80vh" v-loading="loading" :header-cell-style="Style" border>
       <el-table-column label="日期" width="300" align="center" fixed>
         <template slot-scope="users">
           <i class="el-icon-time"></i>
@@ -25,7 +25,7 @@
       </el-table-column>
     </el-table>
 
-    <!-- 弹出框 -->
+    <!-- 删除弹出框 -->
     <el-dialog title="提示" :visible.sync="dialogVisible" width="30%">
       <span>该文章会被删除，是否确定</span>
       <span slot="footer" class="dialog-footer">
@@ -95,7 +95,10 @@ export default {
     Updata(index){
       this.drawer = true
       console.log(this.info[index]);
-    }
+    },
+	Style(){
+		return "text-align:center"
+	}
   }
 }
 </script>

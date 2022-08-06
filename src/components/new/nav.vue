@@ -1,13 +1,16 @@
 // 侧边栏内容
 
 <template>
+	<!-- 把user里的内容渲染到侧边栏 -->
   <el-menu class="el-menu-vertical-demo" background-color="#545c64" text-color="#fff" active-text-color="black" router>
     <h1 id="h1">管理系统</h1>
+	<!-- 无子数组的渲染 -->
     <el-menu-item v-for="item in noChildren" :index="item.path" :key="item.path">
       <i :class="'el-icon-' + item.icon"></i>
       <span slot="title">{{ item.label }}</span>
     </el-menu-item>
 
+	<!-- 有子数组的渲染 -->
     <el-submenu v-for="itemS in hasChildren" :key="itemS.path" :index="itemS.path">
       <template slot="title">
         <i :class="'el-icon-' + itemS.icon"></i>
@@ -76,6 +79,7 @@ export default {
   methods: {
     
   },
+  // 计算属性判断user内数组有无子数组，方便侧边栏的渲染
   computed:{
     noChildren(){
       return this.user.filter(item => !item.children)

@@ -34,6 +34,7 @@ export default {
     async Verification(){
       const password = this.$refs.password.value
       const username = this.$refs.username.value
+	  // 用qs把数据转成node接受的数据格式
       const data = this.qs.stringify({'username': username,'password': password });
       if (password === ""||username === "") {
         this.$message('用户名或密码不能为空')
@@ -155,6 +156,7 @@ export default {
     height: 100px;
   }
 
+/* 动画内容 */
   @media screen and (max-height: 701px){
     #form{
       height: 245px;

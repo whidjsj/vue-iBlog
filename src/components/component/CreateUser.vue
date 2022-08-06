@@ -59,14 +59,15 @@ export default {
 
 data() {
   return {
-    username: '',
-    password: '',
-    emial: '',
-    nickname: '',
-    name: '',
-    gender: '',
-    birthday: '',
-    value: false,
+    username: '',//储存用户名
+    password: '',//储存密码
+	//下面这些接口没有写储存，所以下面即使为空也没事，纯粹是装饰，不会排版所以就暂时不管
+    emial: '',//储存邮箱
+    nickname: '',//昵称
+    name: '',//姓名
+    gender: '',//性别
+    birthday: '',//生日
+    value: false,//管理员权限
   }
 },
 methods:{
@@ -133,6 +134,7 @@ methods:{
       this.$refs.color.$refs.input.style.border = ''
     }else{
       if(res.data){
+		  // element的input不知道怎么改那个边框所以用ref找到input修改，懒得改了
         this.$refs.color.$refs.input.style.border = 'green 1px solid'
       }else {
         this.$refs.color.$refs.input.style.border = 'red 1px solid'
@@ -140,6 +142,8 @@ methods:{
     }
   },
 },
+// 数据更新的时候调用判断用户名的方法，这里发送会发送很多HTTP请求，应该可以先把用户名都请求回来然后再本地储存，这样可以减少请求，
+// 这里不想改了，没学过优化所以先这样
 updated(){
   this.DatedChange()
 }

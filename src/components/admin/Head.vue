@@ -1,4 +1,5 @@
 <template>
+	<!-- 标题动画 -->
   <div id="head">
     <slot name="Admin"></slot>
     <slot name="En"></slot>

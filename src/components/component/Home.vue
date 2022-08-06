@@ -35,7 +35,7 @@ export default {
   methods:{
     Create(){
       let myChart = echarts.init(this.$refs.echarts);
-      // 绘制图表
+      // 绘制图表,这里所有数据都是自己写的数据，没有从服务器请求，单纯就是熟悉一下操作
       myChart.setOption({
         title: {
           text: '近期访客数量'

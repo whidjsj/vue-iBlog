@@ -1,9 +1,9 @@
-// 用户信息表单 包含修改和删除
-
+<!-- 用户信息表单 包含修改和删除 -->
+<!-- 这个表格还有很多东西没有写后台还没有优化所以先不打算写完 -->
 <template>
   <div>
     <el-button @click="Refresh" type="info">刷新数据</el-button>
-    <el-table :data="users" style="width: 100%; margin: auto;" max-height="80vh" v-loading="loading" border >
+    <el-table :data="users" style="width: 100%; margin: auto;" max-height="80vh" v-loading="loading" border>
       <el-table-column label="日期" width="300" fixed>
         <template slot-scope="users">
           <i class="el-icon-time"></i>
@@ -58,7 +58,6 @@ export default {
   methods: {
     //获取数据
     async Gain(){
-      
       const { data:res } = await this.axios({
         url: '/my/admin',
         method: 'post',
@@ -68,9 +67,9 @@ export default {
       })
       this.users = res.data
       this.loading = false
-
+	  console.log(res)
     },
-    //删除数据
+    //删除数据,用变量将被点击删除的按钮的索引记录，然后再利用索引把数组中的用户名取出发送给服务器，服务器删除后重新调用请求数据的函数更新数组
     Del(scope){
       this.index = scope
       this.dialogVisible = true

@@ -3,15 +3,16 @@
 <template>
   <div>
     <el-container id="a">
+<!-- aside部渲染：主要为侧边栏，导入侧边栏组件 -->
       <el-aside width="auto">
         <nav-vue></nav-vue>
       </el-aside>
-
+<!-- head部渲染：目前只有退出登入 -->
       <el-container>
         <el-header id="head">
           <el-link icon="el-icon-s-promotion" :underline="false" id="quit" @click="dialogVisible = true">退出登入</el-link>
         </el-header>
-
+<!-- main部渲染：把不同表格按侧边栏内容渲染，使用vue-router跳转 -->
         <el-main id="e">
           <router-view></router-view>
         </el-main>
